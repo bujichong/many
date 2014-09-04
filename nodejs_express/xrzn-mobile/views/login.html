@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html class="login">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <title>用户登录 - {{g_app}}</title>
+</head>
+
+<body class="login">
+    <div id="loginbox">
+        <form action="/doLogin" method="post" id="loginFrm">
+            <input type="hidden" name="auth" value="true" />
+            <input type="hidden" id="p" value="{{SESSION_RANDOM}}" />
+
+            <h1 class="h1-logo">
+                <img src="images/logo.png" width="460" alt="{{g_app}}" />
+            </h1>
+            <div class="logincont">
+                <p id="errorMsg"></p>
+                <p class="p-item p-item-user">
+                    <input type="text" class="txt txt-user" id="uname" name="user_code" placeholder="用户名" />
+                </p>
+                <p class="p-item">
+                    <input type="password" class="txt txt-password" id="password" name="password" placeholder="密码" />
+                </p>
+            </div>
+            <p class="p-btn"><a class="a-login" href="#">登 录</a>
+            </p>
+        </form>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+
+    <script type="text/javascript">
+    var $errMsg = $('#errorMsg');
+    $('#loginFrm').submit(function() {
+        $errMsg.show();
+        var user_code = $("#uname").val(),
+            p = $('#p').val(),
+            password = $('#password').val();
+        if (!user_code) {
+            $errMsg.removeClass('validateOk').text("请输入用户名!");
+            $("#uname").focus();
+            return false;
+        }
+        if (!password) {
+            $errMsg.removeClass('validateOk').text("请输入密码!");
+            $("#password").focus();
+            return false;
+        }
+        $errMsg.addClass('validateOk').text('登录中，请稍候...');
+        var s = md5(md5(password) + p);
+        $.ajax({
+            url: '/doLogin',
+            dataType: 'json',
+            type: 'post',
+            data: {
+                user_code: user_code,
+                s: s
+            },
+            success: function(rst) {
+                if (rst.state) {
+                    $errMsg.addClass('validateOk').text('登录成功！转向中...');
+                    window.location.href = "/index.html";
+                } else {
+                    $errMsg.text(rst.msg);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                $errMsg.removeClass('validateOk').text("连接失败，请重新登录...");
+            }
+        });
+        return false;
+    });
+    $('.a-login').click(function() {
+        $('#loginFrm').submit();
+        return false;
+    });
+    </script>
+</body>
+
+</html>

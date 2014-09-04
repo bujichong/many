@@ -1,0 +1,9 @@
+exports.mysql={
+	'host': '192.168.1.3',
+	'port': 3306,
+	'user': 'xrzn',
+	'password': 'xrzn888',
+	'database': 'gps'
+};
+
+exports.mgUrl="mongodb://xrzn:xrzn888@192.168.1.3:27017/gps";

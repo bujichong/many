@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <title>定位车辆</title>
+    <script type="text/javascript">
+    var mData = {
+        today: new Date({{ today}}),
+        vehiclesList: '/data/getVehicleList',
+        //{"leaf":true,"id":,"text":}
+        searchList: '/data/getSearchList?key=',
+        //{"leaf":true,"id":,"text":}
+        vehicleInfo: '/data/getVehicleInfo?id=',
+        //{id:,data:[{pos:{lng:,lat:},dt:30,dtAlias:'n',elev:'',speed:'',state:''}],state:true,msg:''}
+        vehicleTrack: '/data/getVehicleTrack'
+        //{id,line:[{lng:,lat:},{lng:,lat:}],state:true}
+    }
+    </script>
+</head>
+
+<body>
+    <div id="mapbox"></div>
+    <div class="detailsbox">
+        <h3 class="h3-carInfo">
+            <span class="s-t">湘A3D32F</span>
+            <span class="s-d">车辆详情</span>
+        </h3>
+        <ul class="ul-carInfo">
+            <li>
+                <span class="s-title">车辆状态：</span>
+                <span class="s-info s-state"></span>
+                <input type="hidden" id="txt-carSid" class="txt" name="txt" />
+            </li>
+            <li>
+                <span class="s-title">经&nbsp;纬&nbsp;&nbsp;度：</span>
+                <span class="s-info s-lnglat">116.384 , 39.925</span>
+            </li>
+            <li>
+                <span class="s-title">速&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度：</span>
+                <span class="s-info s-speed">
+                    <em class="em-speed">23.4</em> 公里/小时</span>
+            </li>
+            <li>
+                <span class="s-title">高&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度：</span>
+                <span class="s-info s-height">
+                    <em class="em-elev">352</em>米</span>
+            </li>
+            <li>
+                <span class="s-title">方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;向：</span>
+                <span class="s-info s-pos">正东</span>
+            </li>
+            <li class="li-address">
+                <span class="s-title">位&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;置：</span>
+                <span class="s-info s-addressInfo">正在玩命获取车辆地址中...</span>
+            </li>
+            <li class="li-btn">
+                <a href="#" class="a-opmarker a-around">搜索周边</a><a href="#" class="a-opmarker a-searchTrack">查看轨迹</a>
+                <!-- <a href="#" class="a-opmarker a-showAlarm">报警信息</a> -->
+                <input type="hidden" class="txt txt-selDate" name="txt" />
+            </li>
+        </ul>
+    </div>
+    <div class="listbox">
+        <ul id="list-0" class="ul-list ul-list-a">
+            <!--             <li class="li-par">
+                <span>分组D</span>
+            </li>
+            <li class="li-chi">
+                <span>车辆A</span>
+            </li> -->
+        </ul>
+        <ul id="ul-searchList" class="ul-list ul-list-c"></ul>
+    </div>
+    <div class="searchbox">
+        <span class="s-back">返回</span>
+        <input type="text" class="txt-search" name="txt" placeholder="车牌号" />
+    </div>
+    <div id="dtBox"></div>
+    <div id="dtBox2"></div>
+
+    <!-- popbox -->
+    <div id="popboxNear" class="popbox">
+        <div class="popbg">
+            <div class="popBody">
+                <div id="popC-1" class="popC">
+                    <h3 class="h3-title">请输入关键词</h3>
+                    <div class="popcont">
+                        <input type="text" class="txt txt-localKey" value="" placeholder="例如：酒店、公交车、加油站" />
+                    </div>
+                    <p class="p-item p-btn"> <a href="#" class="a-btn a-searchLocal">确 定</a>
+                </div>
+                <span class="s-close">X</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- popbox -->
+    <div id="popboxAlarmList" class="popbox">
+        <div class="popbg">
+            <div class="popBody">
+                <div id="popC-2" class="popC">
+                    <h3 class="h3-title">
+                        <span class="s-date">2014-09-02</span>报警列表</h3>
+                    <ul class="ul-alarmList">
+                        <li class="li-alarmList">
+                            <span class="s-title">11:32</span>
+                            <span class="s-info">停车报警停车报警停车报警停车报警</span>
+                        </li>
+                        <li class="li-alarmList">
+                            <span class="s-title">11:32</span>
+                            <span class="s-info">停车报警</span>
+                        </li>
+                        <li class="li-alarmList">
+                            <span class="s-title">11:42</span>
+                            <span class="s-info">停车报警停车报警停车报警停车报警停车报警停车报警停车报警停车报警</span>
+                        </li>
+
+                    </ul>
+                </div>
+                <span class="s-close">X</span>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=499112f817ba817f59472fe03dd6828f&v=1.0"></script>
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/dateTimePicker.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+</body>
+
+</html>
