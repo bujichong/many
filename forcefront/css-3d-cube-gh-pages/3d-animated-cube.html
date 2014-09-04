@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>3D Animated Cube</title>
+    <style>
+      body {
+        -webkit-user-select: none;
+        -webkit-perspective: 1200;
+        -webkit-perspective-origin: 50% 100px;
+        font-family: tahoma, sans-serif;
+        font-size: 24px;
+      }
+      .cube {
+        position: relative;
+        margin: 200px auto;
+        width: 200px;
+        height: 200px;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transition: top 1s linear;
+        -webkit-animation: spin 4s infinite ease-out;
+      }
+      .cube:hover {
+        top: 150px;
+      }
+      b {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background: rgba(240, 240, 240, 0.2);
+        -webkit-box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+      }
+      b.front {
+        -webkit-transform: translateZ(100px);
+      }
+      b.back {
+        -webkit-transform: translateZ(-100px) rotateY(180deg);
+      }
+      b.left {
+        -webkit-transform: translateX(-100px) rotateY(270deg);
+      }
+      b.right {
+        -webkit-transform: translateX(100px) rotateY(90deg);
+      }
+      b.top {
+        -webkit-transform: translateZ(-100px) rotateX(90deg);
+        -webkit-transform-origin: top center;
+        -webkit-transition: -webkit-transform 1s linear;
+      }
+      .cube:hover b.top {
+        -webkit-transform: translateZ(-100px) rotateX(225deg);
+      }
+      b.bottom {
+        -webkit-transform: translateY(100px) rotateX(270deg);
+      }
+      i {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background: rgba(0, 120, 255, 0.2);
+        -webkit-box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+        -webkit-transition: top 1s linear;
+      }
+      .cube:hover i {
+        top: -200px;
+      }
+      i.front {
+        -webkit-transform: translateZ(50px);
+      }
+      i.back {
+        -webkit-transform: translateZ(-50px) rotateY(180deg);
+      }
+      i.left {
+        -webkit-transform: translateX(-50px) rotateY(270deg);
+      }
+      i.right {
+        -webkit-transform: translateX(50px) rotateY(90deg);
+      }
+      i.top {
+        -webkit-transform: translateY(-50px) rotateX(90deg);
+      }
+      i.bottom {
+        -webkit-transform: translateY(50px) rotateX(270deg);
+      }
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotateX(-30deg) rotateY(0);
+        }
+        25% {
+          -webkit-transform: rotateX(0deg) rotateY(90deg);
+        }
+        50% {
+          -webkit-transform: rotateX(30deg) rotateY(180deg);
+        }
+        75% {
+          -webkit-transform: rotateX(0deg) rotateY(270deg);
+        }
+        100% {
+          -webkit-transform: rotateX(-30deg) rotateY(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cube">
+      <b class="front">front</b>
+      <b class="back">back</b>
+      <b class="left">left</b>
+      <b class="right">right</b>
+      <b class="top">top</b>
+      <b class="bottom">bottom</b>
+      <i class="front">front</i>
+      <i class="back">back</i>
+      <i class="left">left</i>
+      <i class="right">right</i>
+      <i class="top">top</i>
+      <i class="bottom">bottom</i>
+    </div>
+  </body>
+</html>

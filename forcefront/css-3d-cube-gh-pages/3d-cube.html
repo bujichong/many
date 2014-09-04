@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>3D Cube</title>
+    <style>
+
+      body {
+        -webkit-user-select: none;
+        -webkit-perspective: 1200;
+        -webkit-perspective-origin: 50% 100px;
+        font-family: tahoma, sans-serif;
+        font-size: 24px;
+      }
+      .cube {
+        position: relative;
+        margin: 200px auto;
+        width: 200px;
+        height: 200px;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transition: top 1s linear;
+      }
+      .cube.open {
+        top: 150px;
+      }
+      b {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background: rgba(240, 240, 240, 0.2);
+        -webkit-box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+      }
+      b.front {
+        -webkit-transform: translateZ(100px);
+      }
+      b.back {
+        -webkit-transform: translateZ(-100px) rotateY(180deg);
+      }
+      b.left {
+        -webkit-transform: translateX(-100px) rotateY(270deg);
+      }
+      b.right {
+        -webkit-transform: translateX(100px) rotateY(90deg);
+      }
+      b.top {
+        -webkit-transform: translateZ(-100px) rotateX(90deg);
+        -webkit-transform-origin: top center;
+        -webkit-transition: -webkit-transform 1s linear;
+      }
+      .cube.open b.top {
+        -webkit-transform: translateZ(-100px) rotateX(225deg);
+      }
+      b.bottom {
+        -webkit-transform: translateY(100px) rotateX(270deg);
+      }
+      i {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background: rgba(0, 120, 255, 0.2);
+        -webkit-box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+        -webkit-transition: top 1s linear;
+      }
+      .cube.open i {
+        top: -200px;
+      }
+      i.front {
+        -webkit-transform: translateZ(50px);
+      }
+      i.back {
+        -webkit-transform: translateZ(-50px) rotateY(180deg);
+      }
+      i.left {
+        -webkit-transform: translateX(-50px) rotateY(270deg);
+      }
+      i.right {
+        -webkit-transform: translateX(50px) rotateY(90deg);
+      }
+      i.top {
+        -webkit-transform: translateY(-50px) rotateX(90deg);
+      }
+      i.bottom {
+        -webkit-transform: translateY(50px) rotateX(270deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cube">
+      <b class="front">front</b>
+      <b class="back">back</b>
+      <b class="left">left</b>
+      <b class="right">right</b>
+      <b class="top">top</b>
+      <b class="bottom">bottom</b>
+      <i class="front">front</i>
+      <i class="back">back</i>
+      <i class="left">left</i>
+      <i class="right">right</i>
+      <i class="top">top</i>
+      <i class="bottom">bottom</i>
+    </div>
+    <script>
+      var flag = false
+      var cube = document.querySelector('.cube')
+      var axis = {x: 0, y: 0}
+      var rotation = {x: -15, y: 30}
+
+      function setRotation(el, obj) {
+        el.style.webkitTransform = 'rotateX(' + obj.x + 'deg) rotateY(' + obj.y + 'deg)'
+      }
+
+      setRotation(cube, rotation)
+
+      cube.onclick = function() {
+        cube.classList[cube.classList.contains('open') ? 'remove' : 'add']('open')
+      }
+
+      document.onmousedown = function(e) {
+        flag = true
+        e.preventDefault()
+        e.stopPropagation()
+        axis.x = e.pageX
+        axis.y = e.pageY
+      }
+
+      document.onmousemove = function(e) {
+        if(flag) {
+          e.preventDefault()
+          e.stopPropagation()
+          var rx = rotation.x - e.pageY + axis.y
+          var ry = rotation.y + e.pageX - axis.x
+          setRotation(cube, {x: rx, y: ry})
+        }
+      }
+
+      document.onmouseup = function(e) {
+        flag = false
+        e.preventDefault()
+        e.stopPropagation()
+        rotation.x = rotation.x - e.pageY + axis.y
+        rotation.y = rotation.y + e.pageX - axis.x
+      }
+    </script>
+  </body>
+</html>
