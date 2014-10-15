@@ -1,0 +1,14 @@
+{
+  "name": "xrznGPS",
+  "version": "2.0",
+  "description": "版权所有 @ 2014 湖南祥瑞智能机器有限公司",
+  "homepage": "http://gps.xrzn168.com/",
+  "author": "bujichong <bujichong@163.com>",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-requirejs": "^0.4.4",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
