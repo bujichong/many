@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{{>meta }}
+</head>
+<body class="reglogin">
+{{>nav}}
+<div class="formBox">
+	<div class="formCont-b loginCont">
+		<div class="formC-l">
+		      <form action="#" class="form-validate form-login" rel="login">
+				  <input type="hidden" name="r" value="{{rand}}" id="r"/>
+				  <h2 class="h2-title h2-title-login"><span class="s-n">会员登录</span></h2>
+		          <p class="p-item">
+	                        <label class="lab-item">用户名：</label>
+	                        <input type="text" class="txt txt-user" name="username" id="username" value="" autocomplete="off" validate="{required:'请输入用户名'}" />
+	                        <label class="lab-df">请输入用户名</label>
+		          </p>
+		          <p class="p-item">
+	                        <label class="lab-item">密　码：</label>
+	                        <input type="password" class="txt txt-pass" name="password" id="password" value="" autocomplete="off" validate="{required:'请输入密码'}" />
+	                        <label class="lab-df">请输入密码</label>
+		          </p>
+	<!-- 	          <p class="p-item p-remLogin">
+		          	<label class="lab-item hide">记住用户名</label>
+		              <label class="lab-chk">
+		                  <input type="checkbox" class="chk chk-rememberUser" name="chk-1" /> 记住用户名</label><a class="a-forgetPass" href="#">忘记密码？</a>
+		          </p> -->
+		          <p class="p-item p-btn">
+		          		<label class="lab-item hide">登 录</label>
+		              <input type="submit" class="btn btn-submit" name="btnSubmit" value="登 录" />
+		          </p>
+		      </form>
+		</div>
+		<div class="formC-r">
+	          <p class="p-item p-toao">没有在哪儿账户？<a href="reg.html" class="a-toao">立即注册</a></p>
+		</div>
+	</div>
+
+</div>
+
+{{>foot}}
+<script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/js/front-min.js"></script>
+<script type="text/javascript" src="/js/md5.js"></script>
+
+</body>
+</html>

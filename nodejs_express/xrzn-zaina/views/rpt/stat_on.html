@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{>inc_list}}
+<style type="text/css">
+	.p-query{padding:6px 0 6px 10px;background:#e4eaeb;border-left:1px solid #ccc;}
+	.p-query label.lab-i{margin-right:5px;}
+	.hk_search{height:26px;}
+</style>
+</head>
+<body>
+<div class="mainCont">
+<div class="tableBox">
+	<h3 class="h2-tableTitle">上线率统计</h3>
+	<p class="p-query" id="sBox">
+		<label class="lab-i">开始时间：<input class="txt hk_time" type="text" value="{{startTime}}" name="startTime"/></label>
+		<label class="lab-i">往后:<input class="txt w40 tac" type="text" value="1" name="num"/> 天</label> <input type="button" class="btn btn-submit hk_search" data-opt="{'grid':'gridBox',scope:'sBox'}" value="查询" id="search" />
+	</p>
+	<div id="gridBox"></div>
+</div>
+</div>
+<script type="text/javascript">
+$grid.newGrid("#gridBox",{
+	columns: [
+		{name:'sid',hide:true}
+		,{display:'编号',name:'vehicleNo'}
+		,{display:'车牌号',name:'plateNum'}
+		,{display:'累计',name:'total',width:140,align:'right',render:function(r,inx,v){
+			if(v>60*60){
+				return Math.ceil(v/360)/10+"小时";
+			}else if(v>60){
+				return Math.ceil(v/6)/10+"分钟";
+			}else{
+				return v+"秒";
+			}
+		}}
+		,{display:'在线率',name:'rate',render:function(r,i,v){
+			return Math.floor(v*1000)/10+"%";
+		}}
+	]
+	,height:$(window).height()-70
+	,url: "/rpt/getStatOn.htm"
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>历史轨迹 - 欢迎使用 "在哪儿"</title>
+<meta charset="utf-8">
+<link type="text/css" rel="stylesheet" href="/css/more.css" />
+<link type="text/css" rel="stylesheet" href="/css/track.css" />
+</head>
+<body>
+
+<div class="trackBox">
+	<div id="mapBox" class="mapBox"></div>
+</div>
+
+<!-- <input class="txt" type="hidden" id="sid" value="${sid}"/> -->
+
+<div class="trackToolbar noMapBox">
+	<h2 class="h2-toolbar">轨迹查看</h2>
+	<form class="hk_form" id="fm">
+		<div class="toolbarOp">
+			<p class="p-item"><label class="lab-txt">起始时间：<input type="text" id="trackStartTime" class="txt hk_trackTime" style="width:140px;" name="start" /></label></p>
+			<p class="p-item"><label class="lab-txt">结束时间：<input type="text" id="trackEndTime" class="txt hk_trackTime" style="width:140px;" name="end" /></label></p>
+		</div>
+		<h2 class="h2-tabTitle"><span class="s-tabTitle s-tabTitle-now">全部车辆</span><span class="s-tabTitle s-filterTitle">筛选列表</span></h2>
+
+		<div class="tabListBox tabListBox-now"><!-- 全部车辆 -->
+			<div class="trackCarList" id="loadTree"></div>
+			<div class="trackListOp treeOp"><span class="s-control s-controlToFilter" title="添加到筛选列表">添加到筛选</span></div>
+		</div>
+
+		<div class="tabListBox"><!-- 筛选列表 -->
+			<ul class="ul_tree trackCarList ul-filterCarList">
+				<li class="li-noResult">暂无筛选车辆...</li>
+			</ul>
+			<div class="trackListOp filterOp"><span class="s-control s-controlDel" title="删除">删除</span><span class="s-control s-controlSelAll" title="全选">全选</span></div>
+		</div>
+
+	</form>
+</div>
+
+
+<script type="text/javascript">
+// 全局变量 begin
+var $sock;//
+var pagePos = 'track';
+var mapOpt = {
+	mapType : 'bmap',
+	baseLoad : true,
+	sockOpend : false,
+	user : '{{user.userCode}}',
+	N : 1000000,
+	firstPos : '113.083745,28.251105',
+	logPanel : null
+};
+
+var $map = null,$mouseTool = null;//地图，地图鼠标工具
+var $treeInfo = {
+	root : '#loadTree',//树根容器
+	data : null,//暂存树的列表数据
+	chkedSid : '',//被勾选的车sid列表字符串
+	selectedSid : '',//被选中的车的sid
+	inParNode : [] //暂存收缩父节点
+};
+var popO = {};//存放pop参数
+// 全局变量 end
+</script>
+
+<script type="text/javascript">
+	document.write('<script type="text/javascript" src="/js/require.js" data-main="/js/track-main-min"><\/script>');
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>欢迎使用 "在哪儿"</title>
+    <link rel="icon" href="/images/xrzn_16_16.ico" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" href="/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="/css/work.css" />
+</head>
+<body>
+
+
+{{>nav}}
+
+<!-- header -->
+<!-- <div class="header fix-header noMapBox">
+    <h1 class="h1-siteInfo"><a href="index.html" class="a-logo"><img class="img-logo" src="images/front/logo.png" height="43" width="132" alt="在哪儿——你身边的GPS导航定位专家" /></a></h1>
+    <ul class="ul-mainnav">
+        <li class="li-mainnav"><a href="index.html" class="a-nav a-now">首 页</a></li>
+        <li class="li-mainnav"><a href="faq.html" class="a-nav">常见问题</a></li>
+        <li class="li-mainnav"><a href="app.html" class="a-nav">APP下载</a></li>
+        <li class="li-mainnav"><a href="contact.html" class="a-nav">联系我们</a></li>
+    </ul>
+</div> -->
+
+<!-- pageLoading -->
+<div class="pageLoading">
+    <div class="pageLoadTip">连接加载中...</div>
+</div>
+
+<!-- 地图区域 -->
+<div id="mainBox" class="mainBox">
+    <div class="mapWrapbox">
+        <div id="mapBox" class="mapBox"></div>
+        <!-- 地图区域 -->
+
+        <div class="carIconIntro">
+            <ul class="ul-iconIntro">
+                <li class="li-o"><span class="s-i s-ia"><em class="em-i"></em><em class="em-t">行驶车辆</em></span><span class="s-t s-ta">行驶车辆</span></li>
+                <li class="li-o"><span class="s-i s-ib"><em class="em-i"></em><em class="em-t">点火车辆</em></span><span class="s-t s-tb">点火车辆</span></li>
+                <li class="li-o"><span class="s-i s-ic"><em class="em-i"></em><em class="em-t">熄火车辆</em></span><span class="s-t s-tc">熄火车辆</span></li>
+                <li class="li-o"><span class="s-i s-id"><em class="em-i"></em><em class="em-t">离线车辆</em></span><span class="s-t s-td">离线车辆</span></li>
+            </ul>
+            <span class="s-iiconClose">X</span>
+            <h4 class="h4-iconIntro">图<br />例</h4>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="playerBox"><div id="playerContainer"></div></div>
+<!-- 顶部通栏 -->
+<div class="headTool noMapBox">
+
+    <ul class="ul-headL">
+        <li class="li-hr"><span class="s-subHr s-tool-rule" title="测距离">测距离</span></li>
+        <li class="li-hr"><span class="s-subHr s-tool-ruleArea" title="测面积">测面积</span></li>
+        <li class="li-hr"><span class="s-subHr s-tool-savePos" title="保存位置">保存位置</span></li>
+        <li class="li-hr"><span class="s-subHr s-tool-zoomToChina" title="全国范围">全国范围</span></li>
+        <li class="li-hr"><span class="s-subHr s-tool-rectZoomIn" title="拉框放大">拉框放大</span></li>
+        <li class="li-hr"><span class="s-subHr s-tool-rectZoomOut" title="拉框缩小">拉框缩小</span></li>
+        <li class="li-hr"><span class="s-subHr s-tool-clearAll" title="清理地图">清理地图</span></li>
+        <li class="li-hr"><span class="s-hr s-hr-exScreen" title="全屏">全屏</span></li>
+    </ul>
+
+    <ul class="ul-headR">
+        <li class="li-hr"><span class="s-subHr s-listtitle" id="s-list-terminal">设 备</span></li>
+        <li class="li-hr"><span class="s-subHr s-listtitle" id="s-list-interest">兴趣点</span></li>
+        <li class="li-hr"><span class="s-subHr s-listtitle" id="s-list-reports">报 表</span></li>
+    </ul>
+</div>
+
+<!-- 侧边栏 -->
+<div class="sideBar noMapBox">
+    <div class="sideCont">
+
+        <div class="sCont sCont-1">
+            <p class="p-rangeTools"><span title="添加设备" class="s-tool s-tool-overcar fn-clickPop" rel="sideBar.newDevice">添加设备</span><span rel="sideBar.showTrack" href="/tm/showTrack.htm?sid=" title="历史轨迹" poptype="iframe" class="s-tool-k2 fn-clickPop s-tool-track">历史轨迹</span></p>
+            <div class="sContDetail sContDetail-1">
+                <div id="loadTree" class="tree_carList"></div>
+            </div>
+        </div>
+
+
+        <div class="sCont sCont-2">
+            <p class="p-rangeTools"><span title="添加兴趣点" class="s-tool s-tool-pot">添加兴趣点</span></p>
+            <!--<h3 class="h3-sTitle">兴趣点管理</h3>-->
+            <!-- <p class="p-rangeTools"><span class="s-tool s-tool-pot" title="添加兴趣点">兴趣点</span><span class="s-tool s-tool-edit" title="编兴趣点">编辑</span></p> -->
+            <div class="sContDetail sContDetail-2">
+                <ul class="ul-overlayList ul-markerList"></ul>
+            </div>
+        </div>
+
+        <div class="sCont sCont-3">
+            <div class="sContDetail sContDetail-3">
+                    <ul class="ul-rptList">
+                        <li>
+                            <h4 class="h4-title"><span class="s-title">运行分析</span></h4>
+                            <ul class="ul-subRpt ul-subRpt-3">
+                                <li><span class="s-subOp fn-clickPop s-op-rptOnOff" popType="iframe" rel="rpt.tmOnOff" href="/rpt/showStatOn.htm" title="上线率">上线统计</span></li>
+                                <li><span class="s-subOp fn-clickPop s-op-rptPosDetails" popType="iframe" rel="rpt.locDetail" href="/rpt/showLocDetail.htm" title="位置明细">位置明细</span></li>
+                                <li><span class="s-subOp fn-clickPop s-op-rptAccStat" popType="iframe" rel="rpt.accDetail" href="/rpt/showAccDetail.htm" title="ACC分析">ACC分析</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4 class="h4-title"><span class="s-title">里程分析</span></h4>
+                            <ul class="ul-subRpt ul-subRpt-4">
+                                <li><span class="fn-clickPop s-op-rptMileage" popType="iframe" rel="rpt.dayMileage" href="/rpt/showDayMileage.htm">里程统计</span></li>
+                                <li><span class="fn-clickPop s-op-rptRealMileage" popType="iframe" rel="rpt.realMileage" href="/rpt/showRealMileage.htm">实时里程</span></li>
+                                <li><span class="fn-clickPop s-op-rptMileageQuery" popType="iframe" rel="rpt.mileageDetail" href="/rpt/showMileageDetail.htm">里程明细</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+
+    </div>
+    <span class="s-exside">收缩侧边</span>
+</div>
+
+
+<!--<div id="messages"></div>-->
+<!-- 页面弹窗 -->
+
+
+<div class="hide">
+
+    <!-- 保存区域 -->
+    <div id="sideBar_newDevice">
+        <form class="form-validate" action="#">
+            <p class="p-itemTip hide"></p>
+            <p class="p-item"><label class="lab-item">车牌号：</label><select class="drop w50" name="drop">
+                <option value="BJ">京</option>
+                <option value="TJ">津</option>
+                <option value="HE">冀</option>
+                <option value="SX">晋</option>
+                <option value="NM">蒙</option>
+                <option value="LN">辽</option>
+                <option value="JL">吉</option>
+                <option value="HL">黑</option>
+                <option value="SH">沪</option>
+                <option value="JS">苏</option>
+                <option value="ZJ">浙</option>
+                <option value="AH">皖</option>
+                <option value="FJ">闽</option>
+                <option value="JX">赣</option>
+                <option value="SD">鲁</option>
+                <option value="HA">豫</option>
+                <option value="HB">鄂</option>
+                <option value="HN">湘</option>
+                <option value="GD">粤</option>
+                <option value="GX">桂</option>
+                <option value="HI">琼</option>
+                <option value="CQ">渝</option>
+                <option value="SC">川</option>
+                <option value="GZ">贵</option>
+                <option value="YN">云</option>
+                <option value="XZ">藏</option>
+                <option value="SN">陕</option>
+                <option value="GS">甘</option>
+                <option value="QH">青</option>
+                <option value="NX">宁</option>
+                <option value="XJ">新</option>
+            </select><input class="txt w110" type="text"  name="plateNum" validate="{required:'请输入车牌号码',plateNum:true}" /></p>
+            <p class="p-item"><label class="lab-item">SIM卡号：</label><input class="txt" type="text"  name="simId" validate="{required:'请输入SIM卡号',mobile:'请输入11位数字SIM卡号'}" /></p>
+            <!-- <p class="p-so-popBtn"><a href="#" class="a-sopop-btn submitBtn"><span class="s-sopop-btn">确定</span></a></p> -->
+        </form>
+    </div>
+
+    <!-- 保存兴趣点 -->
+    <div id="sideBar_saveMarker">
+    	<p class="p-itemTip hide"></p>
+    	<p class="p-item"><label class="lab-item">名 称：</label><input class="txt" type="text"  name="as_name"/></p>
+    	<p class="p-item"><label class="lab-item">地址：</label><textarea id="newMarkerAddress" class="txta" disabled="disabled" name="ad"></textarea></p>
+    </div>
+
+
+</div>
+<!-- head op end -->
+
+<script id="pointTem" type="text/x-jsrender">
+    <li class="li-overlay li-point">
+        <span id="point-[[>id]]" class="s-overlay" data-id="[[>id]]" data-lat="[[>lat]]" data-lng="[[>lng]]" data-name="[[>name]]" data-address="[[>ad]]" title="[[>ad]]">[[>name]]</span>
+        <em title="删除" class="em-op em-del" data-id="[[>id]]">删除</em>
+    </li>
+</script>
+
+<script id="temDeviceInfo" type="text/x-jsrender">
+<ul class="ul-carInfo">
+    <li><span class="s-title">经　　度：</span><em id="em-potLng" class="blue">[[>lng]]</em></li>
+    <li><span class="s-title">纬　　度：</span><em id="em-potLat" class="blue">[[>lat]]</em></li>
+    <li><span class="s-title">高　　度：</span><em class="blue">[[>elev]]</em></li>
+    <li><span class="s-title">状　　态：</span><em class="blue">[[>state]]</em></li>
+    <li><span class="s-title">角　　度：</span><em class="orange">[[>dt]]</em></li>
+    <li><span class="s-title">方　　向：</span><em class="orange">[[>direction]]</em></li>
+    <li><span class="s-title">速　　度：</span><em class="orange">[[>speed]]km/h</em></li>
+    <li class="li-th"><span class="s-title">地　　址：</span><em class="em-potAdress"> [[>address]]</em></li>
+    <li class="li-th"><span class="s-title">定位时间：</span>[[>time]]</li>
+</ul>
+</script>
+
+<script type="text/javascript">
+    // 全局变量 begin
+    var $sock;//
+    var pagePos = 'index';
+    var mapOpt = {
+        mapType : 'bmap',
+        baseLoad : true,
+        sockOpend : false,
+        user : '{{user.userCode}}',
+        N : 1000000,
+        firstPos : '113.083745,28.251105',
+        logPanel : null,
+        syncPotInfo : false
+    };
+    var $panel={};//底部面板
+    var $map = null,$mouseTool = null;//地图，地图鼠标工具
+    var $player = null;
+    var $treeInfo = {
+        root : '#loadTree',//树根容器
+        data : null,//暂存树的列表数据
+        chkedSid : '',//被勾选的车sid列表字符串
+        selectedSid : '',//被选中的车的sid
+        inParNode : [] //暂存收缩父节点
+    };
+    var popO = {};//存放pop参数
+    var $form;
+
+    // 全局变量 end
+</script>
+<!-- websock -->
+
+
+<script type="text/javascript">
+    document.write('<script type="text/javascript" src="/js/require.js" data-main="/js/main-min"><\/script>');
+</script>
+<!-- <script type="text/javascript" src="/js/require.js" data-main="/js/mapabc/main"></script> -->
+
+</body>
+</html>

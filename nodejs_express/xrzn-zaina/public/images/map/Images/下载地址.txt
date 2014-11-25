@@ -1,0 +1,2 @@
+http://app.mapabc.com/webapi/plugin/3/
+http://app.mapabc.com/jsmap/3/Images/

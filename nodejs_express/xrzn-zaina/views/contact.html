@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{>meta }}
+</head>
+<body id="contact">
+{{>nav}}
+<div class="formBox">
+	<div class="formCont contactCont">
+	      <form action="#" class="form-validate form-login" rel="contcat">
+	          <h2 class="h2-title h2-title-login"><span class="s-n">给我们留言</span></h2><span class="s-mark">请留言</span>
+              {{#if user}}
+              <input id="username" name="username" type="hidden" value="{{user.userCode}}"/>
+              {{else}}
+                <p class="p-item">
+                    <label class="lab-item">用户名：</label>
+                    <input type="text" class="txt txt-user" name="username" id="username" value="" autocomplete="off" validate="{required:'请填写用户名'}" />
+                    <label class="lab-df">请输入用户名(必填)</label>
+                </p>
+              {{/if}}
+
+                <p class="p-item">
+                    <label class="lab-item">手机号：</label>
+                    <input type="text" class="txt txt-phone" name="phone" id="phone" value="" autocomplete="off" validate="{mobile:'请填写正确的手机号码'}" />
+                    <label class="lab-df">方便我们反馈您(选填)</label>
+                </p>
+                <p class="p-item">
+                    <label class="lab-item">我想说：</label>
+                   <textarea name="message" id="message" class="txta txta-message" validate="{required:'请填写留言'}"></textarea>
+                    <label class="lab-df">请留言(必填)</label>
+                </p>
+	          <p class="p-item p-btn">
+	          		<label class="lab-item hide">发送留言</label>
+	              <input type="submit" class="btn btn-submit" name="btnSubmit" value="发送留言" />
+	          </p>
+	      </form>
+	</div>
+
+</div>
+{{>foot}}
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/front-min.js"></script>
+</body>
+</html>

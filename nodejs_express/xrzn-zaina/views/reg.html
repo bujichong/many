@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>meta }}
+</head>
+
+<body class="reglogin">
+    {{>nav}}
+    <div class="formBox">
+        <div class="formCont-b regCont">
+            <div class="formC-l">
+                <form action="login.html" class="form-validate form-login" rel="reg">
+                    <input type="hidden" name="r" value="{{rand}}" id="r" />
+                    <h2 class="h2-title h2-title-login">
+                        <span class="s-n">免费注册</span></h2>
+                    <p class="p-item">
+                        <label class="lab-item">用 户 名 ：</label>
+                        <input type="text" class="txt txt-user" name="username" value="" id="username" autocomplete="off" validate="{required:'请填写用户名',email:'请输入正确的邮件地址',len:{opt:[3,25],msg:'请输入4到24个字符作为用户名'}}" />
+                        <label class="lab-df">用户名为邮箱(必填)</label>
+                    </p>
+                    <p class="p-item">
+                        <label class="lab-item">设置密码：</label>
+                        <input type="password" class="txt txt-pass" name="password" id="password" value="" autocomplete="off" validate="{required:'请填写密码',len:{opt:[3,17],msg:'请输入4到16个字符作为密码'}}" />
+                        <label class="lab-df">请输入4-16位密码(必填)</label>
+                    </p>
+                    <p class="p-item">
+                        <label class="lab-item">确认密码：</label>
+                        <input type="password" class="txt txt-pass" name="repeatPassword" value="" autocomplete="off" validate="{required:'请再次输入密码',equalTo:{opt:'#password',msg:'两次输入的密码不一致！'}}" />
+                        <label class="lab-df">再次输入密码(必填)</label>
+                    </p>
+                    <p class="p-item p-btn">
+                        <label class="lab-item hide">登 录</label>
+                        <input type="submit" class="btn btn-submit" name="btnSubmit" value="立即注册" />
+                    </p>
+                    <p class="p-btn p-torule">点击注册表示您同意并愿意遵守 <a href="rule.html" class="a-rule" target="_blank">去哪儿用户协议</a>
+                    </p>
+
+                </form>
+            </div>
+            <div class="formC-r">
+                <p class="p-item p-toao">已有账号，<a href="login.html" class="a-toao">直接登录</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    {{>foot}}
+
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/front-min.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+</body>
+
+</html>

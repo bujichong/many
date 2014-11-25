@@ -1,0 +1,15 @@
+<!-- header -->
+<div class="header noMapBox">
+	<h1 class="h1-siteInfo"><a href="index.html" class="a-logo"><img class="img-logo" src="images/front/logo.png" height="43" width="132" alt="在哪儿——你身边的GPS导航定位专家" /></a></h1>
+	{{#if user}}
+	<p class="p-headerQuick p-headerQuick-l"><span class="s-userName">欢迎您，<em class="em-userName">{{user.userCode}}</em>！</span><a href="logout" class="a-btn-c a-loginout">退出登录</a></p>
+	{{else}}
+	<p class="p-headerQuick"><a href="reg.html" class="a-btn-a a-reg">免费注册</a><a href="login.html" class="a-btn-a a-login">立即登录</a></p>
+	{{/if}}
+	<ul class="ul-mainnav">
+		<li class="li-mainnav"><a href="index.html" class="a-nav {{#if nav_index}}a-now{{/if}}">首 页</a></li>
+		<li class="li-mainnav"><a href="faq.html" class="a-nav {{#if nav_faq}}a-now{{/if}}">常见问题</a></li>
+		<li class="li-mainnav"><a href="app.html" class="a-nav {{#if nav_app}}a-now{{/if}}">APP下载</a></li>
+		<li class="li-mainnav"><a href="contact.html" class="a-nav {{#if nav_contact}}a-now{{/if}}">联系我们</a></li>
+	</ul>
+</div>
