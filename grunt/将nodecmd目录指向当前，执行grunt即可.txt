@@ -1,0 +1,1 @@
+将nodecmd目录指向当前，执行grunt即可
